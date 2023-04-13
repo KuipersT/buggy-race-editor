@@ -13,5 +13,5 @@ jobs:
     steps:
       - name: Get issues from server
         run: |
-          wget https://${{ github.event.inputs.buggy_race_server_url }}/admin/download/tasks/current/csv -o issues.csv
+          wget https://${{ github.event.inputs.buggy_race_server_url }}/project/tasks/issues.csv
           cat issues.csv
