@@ -1,0 +1,17 @@
+name: Generate SSH Credentials
+
+on:
+  workflow_dispatch:
+    inputs:
+      buggy_race_server_url:
+        description: Please enter the URL or your race server (asbp.buggyrace.net)
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Get issues from server
+        run: |
+          wget https://${{ github.event.inputs.name }}/admin/download/tasks/current/csv -o issues.csv
+          cat issues.csv
